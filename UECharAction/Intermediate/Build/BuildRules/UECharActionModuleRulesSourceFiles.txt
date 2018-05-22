@@ -1,0 +1,3 @@
+F:\Unreal Engine\Repos\UECharAction\UECharAction\Source\UECharAction\UECharAction.Build.cs
+F:\Unreal Engine\Repos\UECharAction\UECharAction\Source\UECharAction.Target.cs
+F:\Unreal Engine\Repos\UECharAction\UECharAction\Source\UECharActionEditor.Target.cs
