@@ -19,6 +19,10 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
+	// ********** //
+	// Components //
+	// ********** //
+
 	// Camera boom for player
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
 	class USpringArmComponent* CameraBoomComp;
@@ -48,10 +52,10 @@ public:
 
 	void OnStopSprinting();
 
-	UPROPERTY(Transient, Replicated)
+	UPROPERTY(Transient)
 	bool bWantsToRun;
 
-	UPROPERTY(Transient, Replicated)
+	UPROPERTY(Transient)
 	bool bIsJumping;
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
@@ -59,7 +63,7 @@ public:
 
 	void SetIsJumping(bool NewJump);
 
-	void OnLanded(const FHitResult& Hit) override;
+	void Landed(const FHitResult& Hit) override;
 
 	void SetSprinting(bool NewSprinting);
 

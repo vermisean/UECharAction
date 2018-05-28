@@ -21,7 +21,7 @@ APlayerCharacter::APlayerCharacter()
 	CameraBoomComp->SetupAttachment(GetRootComponent());
 
 	CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	CameraComp->SetupAttachment(GetRootComponent());
+	CameraComp->SetupAttachment(CameraBoomComp);
 
 	SprintSpeedModifier = 2.5f;
 
@@ -117,7 +117,7 @@ void APlayerCharacter::SetIsJumping(bool NewJump)
 	bIsJumping = NewJump;
 }
 
-void APlayerCharacter::OnLanded(const FHitResult& Hit)
+void APlayerCharacter::Landed(const FHitResult& Hit)
 {
 	Super::OnLanded(Hit);
 	SetIsJumping(false);
