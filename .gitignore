@@ -55,6 +55,8 @@ Plugins/*/Binaries/*
 # Builds
 Build/*
 
+Content/Imported/StarterContent/*
+
 # Whitelist PakBlacklist-<BuildConfiguration>.txt files
 !Build/*/
 Build/*/**
