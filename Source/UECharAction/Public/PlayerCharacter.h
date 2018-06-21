@@ -4,16 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "BaseCharacter.h"
 #include "PlayerCharacter.generated.h"
 
 
 UCLASS()
-class UECHARACTION_API APlayerCharacter : public ACharacter
+class UECHARACTION_API APlayerCharacter : public ABaseCharacter
 {
 	GENERATED_BODY()
 
 public:	
-	APlayerCharacter();
+	APlayerCharacter(const FObjectInitializer& ObjectInitializer);
 
 protected:
 	virtual void BeginPlay() override;
@@ -52,10 +53,7 @@ public:
 
 	void OnStopSprinting();
 
-	UPROPERTY(Transient)
-	bool bWantsToRun;
-
-	UPROPERTY(Transient)
+	UPROPERTY()
 	bool bIsJumping;
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
@@ -74,23 +72,6 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Movement")
 	float SprintSpeedModifier;
-
-
-	// ******** //
-	//  Health  //
-	// ******** //
-
-	UFUNCTION(BlueprintCallable, Category = "Player Setup")
-	float GetHealth() const;
-
-	UFUNCTION(BlueprintCallable, Category = "Player Setup")
-	float GetMaxHealth() const;
-
-	UFUNCTION(BlueprintCallable, Category = "Player Setup")
-	bool IsAlive() const;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Player Setup")
-	float Health;
 
 	virtual float TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
 };
