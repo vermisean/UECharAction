@@ -2,11 +2,13 @@
 
 #include "PlayerCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "BaseCharacter.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 
 
-APlayerCharacter::APlayerCharacter()
+APlayerCharacter::APlayerCharacter(const class FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
 {
 	PrimaryActorTick.bCanEverTick = true;
 
@@ -141,21 +143,6 @@ bool APlayerCharacter::IsSprinting() const
 float APlayerCharacter::GetSprintSpeedModifier() const
 {
 	return SprintSpeedModifier;
-}
-
-float APlayerCharacter::GetHealth() const
-{
-	return Health;
-}
-
-float APlayerCharacter::GetMaxHealth() const
-{
-	return GetClass()->GetDefaultObject<APlayerCharacter>()->Health;
-}
-
-bool APlayerCharacter::IsAlive() const
-{
-	return Health > 0.0f;
 }
 
 float APlayerCharacter::TakeDamage(float Damage, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
